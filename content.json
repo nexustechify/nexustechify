@@ -1,0 +1,62 @@
+{
+  "site": {
+    "companyName": "Nexus Solutions Pvt. Ltd.",
+    "tagline": "Engineering reliable software — web, cloud & data.",
+    "heroCta": "Contact us",
+    "logo": "assets/logo.png",
+    "domain": "www.nexustechify.com"
+  },
+  "services": [
+    {
+      "id": 1,
+      "title": "Product Engineering",
+      "desc": "End-to-end development: web, mobile and APIs."
+    },
+    {
+      "id": 2,
+      "title": "Cloud & DevOps",
+      "desc": "Cloud architecture, migration and automated CI/CD."
+    },
+    {
+      "id": 3,
+      "title": "Data & AI",
+      "desc": "Data platforms, analytics and machine learning solutions."
+    },
+    {
+      "id": 4,
+      "title": "Managed Services",
+      "desc": "Monitoring, support and performance optimization."
+    },
+    {
+      "id": 5,
+      "title": "Consulting Services",
+      "desc": "SAP Consulting , Open Text Consulting, AI & ML Consulting, Infrastacture Creation Consulting and Web & Product application Integration"
+    }
+  ],
+  "team": [
+    {
+      "name": "Priyanka Budidha",
+      "role": "Director",
+      "photo": "assets/team/priyanka.jpg"
+    },
+    {
+      "name": "Ramesh Kadari",
+      "role": "Managing Director|CEO",
+      "photo": "assets/team/ramesh.jpg"
+    }
+  ],
+  "about": "Nexus Techify Solutions Pvt. Ltd. builds and operates secure, scalable software products for startups and enterprises. We focus on practical architecture, clean code, and measurable business outcomes.",
+  "contact": {
+    "email": "hello@nexustechify.com",
+    "phone": "+91-9533212144",
+    "address": "Hyderabad, India"
+  },
+  "blog": [
+    {
+      "id": 1,
+      "title": "Shipping features safely with feature flags",
+      "date": "2025-06-01",
+      "summary": "Feature flags help decouple deployment from releases and reduce risk."
+    }
+  ]
+}
