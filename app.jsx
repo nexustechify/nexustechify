@@ -1,171 +1,116 @@
-import React, { useEffect, useState } from "react";
+const { useState } = React;
 
-export default function HomePage() {
-  const [members, setMembers] = useState([]);
-  const [blog, setBlog] = useState([]);
-  const [data, setData] = useState({
-    contact: { email: "", phone: "", address: "" },
-  });
-  const [site, setSite] = useState({
-    companyName: "Nexus Solutions Pvt. Ltd",
-    domain: "nexussolutions.com",
-    heroCta: "Send",
-  });
-
-  useEffect(() => {
-    // TODO: fetch content.json here
-    setMembers([
-      { name: "John Doe", role: "Developer", photo: "" },
-      { name: "Jane Smith", role: "Designer", photo: "" },
-    ]);
-    setBlog([
-      { id: 1, title: "Welcome Post", date: "2025-09-20", summary: "First blog entry" },
-    ]);
-    setData({
-      contact: {
-        email: "info@nexussolutions.com",
-        phone: "+91-1234567890",
-        address: "Hyderabad, India",
-      },
-    });
-  }, []);
-
+function Navbar() {
   return (
-    <div>
-      <main>
-        {/* Team / Members */}
-        <section id="team" style={{ marginTop: 34 }}>
-          <h2>Our Team</h2>
-          <div style={{ display: "grid", gap: 20, gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
-            {members.map((m, idx) => (
-              <div key={idx} className="card" style={{ textAlign: "center" }}>
-                {m.photo ? (
-                  <img
-                    src={m.photo}
-                    alt={m.name}
-                    style={{
-                      width: 96,
-                      height: 96,
-                      objectFit: "cover",
-                      borderRadius: 999,
-                    }}
-                  />
-                ) : (
-                  <div
-                    style={{
-                      width: 96,
-                      height: 96,
-                      borderRadius: 999,
-                      background: "#e2e8f0",
-                      display: "inline-block",
-                    }}
-                  />
-                )}
-                <h4 style={{ margin: "12px 0 6px" }}>{m.name}</h4>
-                <div style={{ color: "#475569" }}>{m.role}</div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Blog */}
-        <section id="blog" style={{ marginTop: 34 }}>
-          <h2>Latest posts</h2>
-          <div style={{ marginTop: 12 }}>
-            {blog.map((p) => (
-              <div key={p.id} className="card" style={{ marginBottom: 10 }}>
-                <h3 style={{ margin: "0 0 8px" }}>{p.title}</h3>
-                <div style={{ fontSize: 13, color: "#64748b" }}>
-                  {p.date} — {p.summary}
-                </div>
-              </div>
-            ))}
-            {blog.length === 0 && <div>No posts yet — add to content.json</div>}
-          </div>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" style={{ marginTop: 34 }}>
-          <h2>Contact</h2>
-          <div className="card" style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            <div style={{ flex: 1 }}>
-              <p style={{ margin: 0 }}>
-                <strong>Email:</strong>{" "}
-                <a href={`mailto:${data.contact?.email}`}>{data.contact?.email}</a>
-              </p>
-              <p style={{ margin: 0 }}>
-                <strong>Phone:</strong> {data.contact?.phone}
-              </p>
-              <p style={{ margin: 0 }}>
-                <strong>Address:</strong> {data.contact?.address}
-              </p>
-              <p style={{ marginTop: 8, fontSize: 13, color: "#64748b" }}>
-                Domain: {site.domain || "—"}
-              </p>
-            </div>
-            <div style={{ width: 220 }}>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Demo form. Replace with Formspree/Netlify or your API endpoint.");
-                }}
-              >
-                <div style={{ display: "grid", gap: 8 }}>
-                  <input
-                    placeholder="Your name"
-                    required
-                    style={{
-                      padding: 10,
-                      borderRadius: 8,
-                      border: "1px solid #e2e8f0",
-                    }}
-                  />
-                  <input
-                    placeholder="Your email"
-                    type="email"
-                    required
-                    style={{
-                      padding: 10,
-                      borderRadius: 8,
-                      border: "1px solid #e2e8f0",
-                    }}
-                  />
-                  <textarea
-                    placeholder="Message"
-                    required
-                    style={{
-                      padding: 10,
-                      borderRadius: 8,
-                      border: "1px solid #e2e8f0",
-                      minHeight: 80,
-                    }}
-                  />
-                  <button
-                    type="submit"
-                    style={{
-                      padding: "10px 12px",
-                      borderRadius: 8,
-                      border: "none",
-                      background: "#0ea5a4",
-                      color: "#022",
-                    }}
-                  >
-                    {site.heroCta || "Send"}
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      {/* Footer */}
-      <footer style={{ padding: "20px 0", borderTop: "1px solid #eef2f7", marginTop: 40 }}>
-        <div className="container" style={{ textAlign: "center", color: "#64748b" }}>
-          © {new Date().getFullYear()} {site.companyName} · Built with ❤️ · Edit{" "}
-          <code>content.json</code> to update site content.
-        </div>
-      </footer>
-    </div>
+    <nav className="navbar">
+      <img src="./assets/logo.png" alt="Nexus Techify Logo" className="logo" />
+      <ul className="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   );
 }
+
+function Hero() {
+  return (
+    <section className="hero">
+      <h1>Nexus Techify Solutions Pvt. Ltd.</h1>
+      <p>Innovating IT solutions to power your business growth</p>
+      <a href="#contact" className="btn">Let’s Talk</a>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="section">
+      <h2>About Us</h2>
+      <p>
+        At Nexus Techify Solutions, we are committed to delivering next-generation 
+        IT services, digital transformation, and consulting solutions to global enterprises.
+      </p>
+    </section>
+  );
+}
+
+function Services() {
+  const services = [
+    "Custom Software Development",
+    "Cloud & DevOps Solutions",
+    "AI & Data Analytics",
+    "Enterprise Security",
+    "Mobile & Web Applications",
+  ];
+  return (
+    <section id="services" className="section">
+      <h2>Our Services</h2>
+      <div className="cards">
+        {services.map((s, i) => (
+          <div className="card" key={i}>{s}</div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Careers() {
+  return (
+    <section id="careers" className="section">
+      <h2>Careers</h2>
+      <p>
+        We are always looking for passionate talent to join our growing team. 
+        Reach out at <strong>careers@nexustechify.com</strong>
+      </p>
+    </section>
+  );
+}
+
+function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+  }
+  return (
+    <section id="contact" className="section">
+      <h2>Contact Us</h2>
+      {submitted ? (
+        <p>✅ Thanks! We’ll respond soon.</p>
+      ) : (
+        <form onSubmit={handleSubmit} className="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <button type="submit" className="btn">Send</button>
+        </form>
+      )}
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="footer">
+      <p>© {new Date().getFullYear()} Nexus Techify Solutions Pvt. Ltd.</p>
+    </footer>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Careers />
+      <Contact />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
